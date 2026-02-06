@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#MISE description="Build the app"
+
+# Install BoxLang with Commandbox
+/bin/bash -c "$(curl -fsSL https://install.boxlang.io) --with-commandbox --force"
+box update --system --force
+
+# Create a new ColdBox application using this BoxLang template
+cd $APP_HOME
+box coldbox create app --boxlang
+box server start port=8080 host=0.0.0.0
+
+echo "Build complete"
+curl 127.0.0.1:8080

@@ -1,0 +1,3 @@
+[tasks.run]
+description = "Start the application"
+run = "box version"
